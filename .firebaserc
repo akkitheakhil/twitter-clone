@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "twitter-v2-clone": {
+      "hosting": {
+        "twitter-clone": [
+          "twitter-v2-clone"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "twitter-v2-clone"
+  }
+}

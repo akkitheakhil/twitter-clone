@@ -4,6 +4,14 @@ const environmentPaths = ['./src/environments/environment.prod.ts', './src/envir
 const envConfig = `export const environment = {
   production: false,
   apiBaseUrl: '',
+  firebase: {
+    apiKey: '',
+    authDomain: '',
+    projectId: '',
+    storageBucket: '',
+    messagingSenderId: '',
+    measurementId: '',
+  }
 };
 `;
 
