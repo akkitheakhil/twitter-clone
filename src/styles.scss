@@ -1,1 +1,126 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap");
+
+:root {
+  // Colors
+  --color-background: #06141d;
+  --color-background-secondary: #1b2730;
+  --color-text: #ffffff;
+  --color-text-secondary: #d3d3d3;
+  --color-text-accent: #55626e;
+  --color-red: #f2506d;
+  --color-orange: #ff9f1c;
+  --color-yellow: #ffeb3b;
+  --color-green: #25ca98;
+  --color-blue: #4b93ff;
+  --feature-color: #1da1f2;
+
+  // Fonts
+  --font-size: 16px;
+  --font-family: "Roboto", sans-serif;
+  --font-size-h1: 2.5rem;
+  --font-size-h2: 2rem;
+  --font-size-h3: 1.5rem;
+  --font-size-h4: 1.25rem;
+  --font-size-h5: 1rem;
+  --font-size-h6: 0.875rem;
+  --font-size-p: 1rem;
+  --font-size-span: 0.875rem;
+  --font-size-small: 0.75rem;
+  --font-size-tiny: 0.625rem;
+
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  // Spacing
+  --spacing-small: 0.25rem;
+  --spacing-tiny: 0.125rem;
+  --spacing-base: 0.5rem;
+  --spacing-large: 1rem;
+  --spacing-xl: 1.5rem;
+  --spacing-xxl: 2rem;
+  --spacing-xxxl: 3rem;
+
+  // Border
+  --border-radius: 0.25rem;
+  --border-radius-lg: 0.5rem;
+  --border-radius-xl: 1rem;
+
+  --border-width: 1px;
+  --border-width-lg: 2px;
+  --border-width-xl: 4px;
+
+  // Breakpoints
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px; // MOBILES
+  --breakpoint-md: 768px; // TABLETS
+  --breakpoint-lg: 992px; // LAPTOPS
+  --breakpoint-xl: 1200px; // DESKTOPS
+  --breakpoint-xxl: 1600px; // DESKTOP HD/RETINA
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
