@@ -9,7 +9,8 @@
     "test": "ng test",
     "config": "ts-node set-env.ts",
     "server": "npm run config && ng serve",
-    "postinstall": "npm run build"
+    "postinstall": "npm run build",
+    "git:config": "git config --local include.path ../.gitconfig"
   },
   "private": true,
   "dependencies": {
