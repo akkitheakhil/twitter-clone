@@ -1,2 +1,2 @@
-environment.prod.ts  filter=envClean
-environment.ts  filter=envClean
+*/environment.prod.ts  filter=envClean
+*/environment.ts  filter=envClean
