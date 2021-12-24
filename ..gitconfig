@@ -1,0 +1,2 @@
+[filter "envClean"]
+    clean = ./gitclean.sh
