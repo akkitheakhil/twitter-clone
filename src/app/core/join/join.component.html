@@ -1,0 +1,60 @@
+<article class="join">
+  <section class="join__background">
+    <fa-icon [icon]="faTwitter" size="2x"></fa-icon>
+  </section>
+  <section class="join__form">
+    <fa-icon [icon]="faTwitter" size="2x"></fa-icon>
+
+    <div class="labels">
+      <h1 class="labels__header">Happening now</h1>
+
+      <h2 class="labels__sub">Join twitter today.</h2>
+    </div>
+
+    <form class="form">
+      <input
+        class="form__input form__input--username"
+        type="text"
+        name="username"
+        placeholder="Username"
+        required
+      />
+      <input
+        class="form__input form__input--password"
+        type="password"
+        name="password"
+        placeholder="Password"
+        required
+      />
+      <button
+        class="form__button"
+        (click)="handleJoinForm(); $event.preventDefault()"
+      >
+        Join
+      </button>
+
+      <div class="form__social-join">
+        <p class="or-text">or</p>
+
+        <button
+          class="socail-button"
+          (click)="handleJoinForm(); $event.preventDefault()"
+        >
+          <fa-icon [icon]="faGoogle" size="2x"></fa-icon>
+          Sign-up with Google
+        </button>
+      </div>
+
+      <p class="form__agreement">
+        By signing up, you agree to the
+        <span class="link">Terms of Service</span> and
+        <span class="link">Privacy Policy</span>, including
+        <span class="link"> Cookie </span> Use.
+      </p>
+    </form>
+    <div class="already">
+      <span class="already__label">Already have an account?</span>
+      <a class="already__link" routerLink="/login">Sign in</a>
+    </div>
+  </section>
+</article>

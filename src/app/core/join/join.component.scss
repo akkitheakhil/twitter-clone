@@ -1,0 +1,209 @@
+.join {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+  width: 100%;
+  &__background {
+    background: url(/assets/images/bg-login.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .ng-fa-icon {
+      color: var(--color-text);
+      font-size: 10em;
+    }
+  }
+
+  &__form {
+    --form-width: 360px;
+    padding: var(--spacing-xl);
+    background: var(--color-text);
+    .ng-fa-icon {
+      color: var(--feature-color);
+    }
+
+    .labels {
+      color: var(--color-background);
+      &__header {
+        font-size: 4em;
+      }
+
+      &__sub {
+        font-size: 2em;
+      }
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-large);
+      margin-top: var(--spacing-large);
+      &__input {
+        border: var(--border-width-lg) solid var(--feature-color);
+        background-color: var(--color-text);
+        height: 50px;
+        width: var(--form-width);
+        padding: var(--spacing-base);
+        border-radius: var(--border-radius-xl);
+        &:focus {
+          outline: none;
+          border-color: var(--color-background);
+        }
+      }
+
+      &__button {
+        height: 50px;
+        width: var(--form-width);
+        background-color: var(--feature-color);
+        border: none;
+        padding: var(--spacing-base);
+        border-radius: var(--border-radius-xl);
+        color: var(--color-text);
+        cursor: pointer;
+        font-size: var(--font-size-h4);
+        font-weight: var(--font-weight-bold);
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          background-color: var(--feature-color-accent);
+        }
+
+        &:active {
+          background-color: var(--feature-color-accent);
+          opacity: 0.6;
+        }
+      }
+
+      &__social-join {
+        width: var(--form-width);
+        .or-text {
+          color: var(--feature-color);
+          text-align: center;
+          margin-bottom: var(--spacing-large);
+          font-size: var(--font-size-h4);
+        }
+
+        .socail-button {
+          height: 50px;
+          width: var(--form-width);
+          cursor: pointer;
+          color: var(--feature-color);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: var(--spacing-base);
+          border-radius: var(--border-radius-xl);
+          border: var(--border-width-lg) solid var(--feature-color);
+          background-color: var(--color-text);
+          transition: all 0.3s ease-in-out;
+          &:hover {
+            background-color: var(--feature-color);
+            color: var(--color-text);
+            .ng-fa-icon {
+              color: var(--color-text);
+            }
+          }
+
+          &:active {
+            background-color: var(--feature-color);
+            opacity: 0.6;
+            color: var(--color-text);
+            .ng-fa-icon {
+              color: var(--color-text);
+            }
+          }
+        }
+      }
+
+      &__agreement {
+        color: var(--color-background);
+        width: var(--form-width);
+        font-size: var(--font-size-small);
+        .link {
+          color: var(--feature-color);
+          text-decoration: none;
+          cursor: pointer;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .already {
+      margin: var(--spacing-base) 0;
+      color: var(--color-background);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-base);
+      align-items: center;
+      width: var(--form-width);
+      &__label {
+        font-size: var(--font-size-h4);
+        font-weight: var(--font-weight-bold);
+      }
+      &__link {
+        width: 100px;
+        color: var(--feature-color);
+        text-decoration: none;
+        border-radius: var(--border-radius-xl);
+        border: var(--border-width-lg) solid var(--feature-color);
+        background-color: var(--color-text);
+        transition: all 0.3s ease-in-out;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        padding: var(--spacing-base) var(--spacing-xl);
+        &:hover {
+          background-color: var(--feature-color);
+          color: var(--color-text);
+        }
+        &:active {
+          background-color: var(--feature-color);
+          opacity: 0.6;
+          color: var(--color-text);
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 998px) {
+  .join {
+    grid-template-columns: 1fr;
+    &__background {
+      display: none;
+    }
+
+    &__form {
+      width: 100%;
+      padding: var(--spacing-small);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .labels {
+        padding: var(--spacing-large);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .join {
+    width: 100%;
+    --form-width: 100%;
+
+    &__form {
+      width: 100%;
+
+      padding: var(--spacing-small);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

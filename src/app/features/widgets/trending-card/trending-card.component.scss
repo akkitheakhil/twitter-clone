@@ -1,0 +1,86 @@
+.trending-card {
+  width: 230px;
+  background-color: var(--color-background-secondary);
+  border-radius: var(--border-radius-xl);
+  position: relative;
+  padding: var(--spacing-base);
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-tiny) var(--spacing-base);
+  }
+
+  &__trends {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-base);
+    .heading {
+      color: var(--color-text-accent);
+      margin: var(--spacing-base) 0;
+      text-transform: uppercase;
+    }
+    .hashtag {
+      list-style: none;
+      cursor: pointer;
+      position: relative;
+      width: 100%;
+
+      &__list {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        padding: var(--spacing-small) 0;
+        .link {
+          font-size: var(--font-size-span);
+        }
+
+        .tweets-count {
+          font-size: var(--font-size-small);
+          color: var(--color-text-accent);
+        }
+
+        &:hover {
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -16px;
+            right: -16px;
+            height: 100%;
+            background-color: var(--color-background-accent);
+            opacity: 0.4;
+          }
+        }
+      }
+    }
+
+    &:not(:last-child) {
+      border-bottom: var(--border-width) solid rgba(85, 98, 110, 0.2);
+    }
+  }
+
+  &__actions {
+    padding: var(--spacing-base) 0;
+    .link {
+      text-decoration: none;
+      color: var(--feature-color);
+      padding: var(--spacing-small) var(--spacing-base);
+      font-size: var(--font-size-small);
+      font-weight: var(--font-weight-bold);
+      cursor: pointer;
+      transition: color 0.2s ease-in-out;
+      &:hover {
+        color: var(--feature-color-accent);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .trending-card {
+    width: 100% !important;
+  }
+}

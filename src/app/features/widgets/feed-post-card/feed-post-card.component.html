@@ -1,0 +1,31 @@
+<article class="feedpost">
+  <div class="feedpost__avatar">
+    <img src="https://i.pravatar.cc/150?img=56" alt="" />
+  </div>
+  <div class="feedpost__post-form">
+    <div
+      class="custom-input"
+      contenteditable="true"
+      [ngClass]="{ active: textArea.length }"
+      (input)="textInputHandler($event)"
+    ></div>
+    <div class="feedpost__post-form-buttons">
+      <button class="btn btn--picture">
+        <fa-icon [icon]="faPicture" size="lg"></fa-icon>
+        <span class="btn__text"> Picture </span>
+      </button>
+      <button class="btn btn--gif">
+        <fa-icon [icon]="faGif" size="lg"></fa-icon>
+        <span class="btn__text">Gif</span>
+      </button>
+      <button class="btn btn--emoji">
+        <fa-icon [icon]="faEmoji" size="lg"></fa-icon>
+        <span class="btn__text">Emoji</span>
+      </button>
+      <button class="btn btn--schedule">
+        <fa-icon [icon]="faSchedule" size="lg"></fa-icon>
+        <span class="btn__text">Schedule</span>
+      </button>
+    </div>
+  </div>
+</article>

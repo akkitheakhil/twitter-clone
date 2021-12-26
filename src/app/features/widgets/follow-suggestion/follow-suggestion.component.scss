@@ -1,0 +1,92 @@
+.follow-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-base);
+  background-color: var(--color-background-secondary);
+  border-radius: var(--border-radius-xl);
+  width: 230px;
+
+  &__title {
+    padding: var(--spacing-tiny) var(--spacing-base);
+  }
+
+  &__people-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-tiny);
+    padding: var(--spacing-large) var(--spacing-base);
+    list-style: none;
+
+    .people-list__card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: var(--spacing-small) 0;
+
+      .avatar {
+        img {
+          height: 35px;
+          width: 35px;
+          border-radius: 50%;
+        }
+      }
+
+      .info {
+        &__name {
+          font-size: var(--font-size-span);
+          font-weight: var(--font-weight-bold);
+          color: var(--color-text-secondary);
+        }
+
+        &__username {
+          font-size: var(--font-size-tiny);
+          color: var(--color-text-accent);
+          font-weight: var(--font-weight-semi-bold);
+        }
+      }
+
+      .actions {
+        &__btn {
+          cursor: pointer;
+          border: none;
+          background-color: var(--color-text);
+          color: var(--color-background);
+          padding: var(--spacing-small) var(--spacing-base);
+          border-radius: var(--border-radius-xl);
+          font-size: var(--font-size-small);
+          font-weight: var(--font-weight-bold);
+          &:hover {
+            background-color: var(--color-text-secondary);
+            color: var(--color-background);
+          }
+
+          &:active {
+            background-color: var(--color-text-accent);
+            color: var(--color-background);
+          }
+        }
+      }
+    }
+  }
+
+  &__actions {
+    .actions__primary {
+      border: none;
+      color: var(--feature-color);
+      padding: var(--spacing-small) var(--spacing-base);
+      font-size: var(--font-size-small);
+      font-weight: var(--font-weight-bold);
+      cursor: pointer;
+      transition: color 0.2s ease-in-out;
+      &:hover {
+        color: var(--feature-color-accent);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .follow-card {
+    width: 100% !important;
+  }
+}

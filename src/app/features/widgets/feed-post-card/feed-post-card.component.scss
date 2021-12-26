@@ -1,0 +1,109 @@
+.feedpost {
+  width: 100%;
+  display: flex;
+  gap: var(--spacing-tiny);
+  padding: var(--spacing-base);
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-xl);
+  &__avatar {
+    height: 50px;
+    justify-self: start;
+    padding: var(--spacing-base);
+    min-width: 60px;
+    min-height: 60px;
+    img {
+      border-radius: 50%;
+      height: 50px;
+      width: 50px;
+    }
+  }
+
+  &__post-form {
+    flex: 1;
+    height: 100%;
+    .custom-input {
+      margin: var(--spacing-base);
+      border: none;
+      height: 100%;
+      padding: var(--spacing-base);
+      font-size: var(--font-size-p);
+      background: var(--color-background-accent-secondary);
+      border-radius: var(--border-radius-lg);
+      color: var(--color-text);
+      min-height: 50px;
+      position: relative;
+      &:focus {
+        outline: none;
+      }
+
+      &:not(.active)::after {
+        content: "What's happening?";
+        position: absolute;
+        left: var(--spacing-base);
+        top: var(--spacing-base);
+        color: var(--color-text-secondary);
+      }
+    }
+
+    &-buttons {
+      padding: var(--spacing-base);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--spacing-base);
+      .btn {
+        padding: var(--spacing-base) var(--spacing-large);
+        background: var(--color-background-secondary);
+        color: var(--color-text);
+        border-radius: var(--border-radius-xxl);
+        font-size: var(--font-size-p);
+        border: var(--border-width) solid rgba(85, 98, 110, 0.2);
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          background: var(--color-background-accent-secondary);
+        }
+
+        &:active {
+          background: var(--color-background-accent-hover);
+        }
+        &--picture {
+          .ng-fa-icon {
+            color: var(--color-green) !important;
+          }
+        }
+        &--gif {
+          .ng-fa-icon {
+            color: var(--color-blue) !important;
+          }
+        }
+        &--emoji {
+          .ng-fa-icon {
+            color: var(--color-yellow) !important;
+          }
+        }
+        &--schedule {
+          .ng-fa-icon {
+            color: var(--color-red) !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .btn__text {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .btn {
+    padding: var(--spacing-tiny) var(--spacing-base);
+  }
+}

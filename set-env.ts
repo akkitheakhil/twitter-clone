@@ -8,7 +8,7 @@ const dotevn = require('dotenv');
 dotevn.config();
 // `environment.ts` file structure
 const envConfigFile = `export const environment = {
-  production: '${process.env["PRODUCTION"]}',
+  production: ${process.env["PRODUCTION"]},
   apiBaseUrl: '${process.env["API_BASE_URL"]}',
   firebase: {
     apiKey: '${process.env["FIREBASE_API_KEY"]}',

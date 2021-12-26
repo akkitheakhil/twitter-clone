@@ -1,1 +1,61 @@
-<p>login works!</p>
+<article class="login">
+  <section class="login__background">
+    <fa-icon [icon]="faTwitter" size="2x"></fa-icon>
+  </section>
+  <section class="login__form">
+    <fa-icon [icon]="faTwitter" size="2x"></fa-icon>
+
+    <div class="labels">
+      <h1 class="labels__header">Happening now</h1>
+
+      <h2 class="labels__sub">Login, tweet and retweet</h2>
+    </div>
+
+    <form class="form">
+      <input
+        class="form__input form__input--username"
+        type="text"
+        name="username"
+        placeholder="Username"
+        required
+      />
+      <input
+        class="form__input form__input--password"
+        type="password"
+        name="password"
+        placeholder="Password"
+        required
+      />
+      <button
+        class="form__button"
+        (click)="handleLoginForm(); $event.preventDefault()"
+      >
+        Login
+      </button>
+
+      <div class="form__social-login">
+        <p class="or-text">or</p>
+
+        <button
+          class="socail-button"
+          (click)="loginWithGoogle(); $event.preventDefault()"
+        >
+          <fa-icon [icon]="faGoogle" size="2x"></fa-icon>
+          Sign-in with Google
+        </button>
+      </div>
+
+      <p class="form__agreement">
+        By signing in, you agree to the
+        <span class="link">Terms of Service</span> and
+        <span class="link">Privacy Policy</span>, including
+        <span class="link"> Cookie </span> Use.
+      </p>
+    </form>
+
+    <div class="already">
+      <span class="already__label">Don't have an account?</span>
+      <a class="already__link" routerLink="/join">Join</a>
+    </div>
+  </section>
+</article>

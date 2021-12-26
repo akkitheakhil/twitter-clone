@@ -1,3 +1,4 @@
+import { CoreFacadeService } from './core/services/core-facade.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'twitter-clone';
+
+  currentAuthInfo$ = this._coreFacadeService.getCurrentUserInfo();
+
+  constructor(private _coreFacadeService: CoreFacadeService) {
+    this._coreFacadeService.getUserAuthInfo();
+  }
 }
