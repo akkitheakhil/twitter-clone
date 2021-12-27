@@ -5,4 +5,5 @@ export interface IAuth {
   photoUrl: string;
   isAuthenticated: boolean;
   dataStatus: string;
+  userID: string;
 }

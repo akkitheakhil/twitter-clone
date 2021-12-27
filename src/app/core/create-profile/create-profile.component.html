@@ -1,0 +1,52 @@
+<article class="create-profile" *ngIf="userInfo$ | async as UserInfo">
+  <div class="create-profile__header">
+    <fa-icon [icon]="faTwitter" size="lg"></fa-icon>
+    <h1>You're logged in.</h1>
+    <h4>Great! one more step to go.</h4>
+    <p>Create your profile and start tweeting</p>
+  </div>
+  <form class="create-profile__form">
+    <div class="form-group">
+      <img />
+    </div>
+    <div class="form-group">
+      <label class="form-group__label" for="name">Display Name</label>
+      <input
+        [(ngModel)]="displayName"
+        class="form-group__input"
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Name"
+        [value]="UserInfo.displayName"
+      />
+    </div>
+    <div class="form-group">
+      <label class="form-group__label" for="username">User id</label>
+      <input
+        [(ngModel)]="userId"
+        class="form-group__input"
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Username"
+      />
+    </div>
+    <div class="form-group">
+      <label class="form-group__label" for="bio">Bio</label>
+      <textarea
+        [(ngModel)]="bio"
+        class="form-group__input form-group__input--textarea"
+        id="bio"
+        name="bio"
+        placeholder="Bio"
+        rows="5"
+      ></textarea>
+    </div>
+  </form>
+  <div class="create-profile__actions">
+    <button class="btn btn--primary" (click)="handleCreateProfile(UserInfo)">
+      Create Profile
+    </button>
+  </div>
+</article>

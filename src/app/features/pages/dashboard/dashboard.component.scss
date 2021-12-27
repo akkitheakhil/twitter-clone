@@ -36,7 +36,7 @@
 @media only screen and (max-width: 992px) {
   .dashboard {
     padding: 0 var(--spacing-xl);
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 230px 3fr;
     &__section {
       &.right {
         display: none !important;

@@ -7,6 +7,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FeedPostCardComponent } from './feed-post-card/feed-post-card.component';
 import { FormsModule } from '@angular/forms';
 import { FeedComponent } from './feed/feed.component';
+import { SharedModule } from '../../shared/shared.module';
 
 
 const widgetComponents = [
@@ -22,7 +23,8 @@ const widgetComponents = [
   imports: [
     CommonModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   exports: [...widgetComponents]
 })

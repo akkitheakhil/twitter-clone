@@ -1,60 +1,62 @@
-<nav class="navigation">
-  <ul class="navigation__container navigation__container--left">
-    <li class="nav-item nav-item--logo">
-      <fa-icon [icon]="faTwitter" size="2x"></fa-icon>
-    </li>
-    <li class="nav-item nav-item--search">
-      <input
-        placeholder="Search twitter"
-        class="nav-item__search"
-        type="search"
-      />
-    </li>
-  </ul>
-  <ul class="navigation__container navigation__container--right">
-    <li class="nav-item">
-      <a class="link" routerLink="/home" routerLinkActive="active">
-        <fa-icon [icon]="faHome" size="lg"></fa-icon>
-        <span class="link__text">Home</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="link" routerLink="/explore" routerLinkActive="active">
-        <fa-icon [icon]="faExplore" size="lg"></fa-icon>
-        <span class="link__text">Explore</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="link" routerLink="/messages" routerLinkActive="active">
-        <fa-icon [icon]="faMessage" size="lg"></fa-icon>
-        <span class="link__text">Message</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="link" routerLink="/notification" routerLinkActive="active">
-        <fa-icon [icon]="faNotification" size="lg"></fa-icon>
-        <span class="link__text">Notifications</span>
-      </a>
-    </li>
-    <li class="nav-item nav-item--profile-mobile">
-      <a class="link" routerLink="/profile" routerLinkActive="active">
-        <fa-icon [icon]="faAccount" size="lg"></fa-icon>
-      </a>
-    </li>
-    <li class="nav-item nav-item--profile">
-      <div class="profile">
-        <img class="profile__image" src="https://i.pravatar.cc/150?img=56" />
-        <span class="profile__name">Akhil Padmanabhan</span>
-        <span class="profile__icon">
-          <fa-icon [icon]="faDropdown" size="sm"></fa-icon>
-        </span>
-      </div>
-    </li>
-  </ul>
-</nav>
+<ng-container *ngIf="userProfile$ | async as User">
+  <nav class="navigation" *ngIf="User.dataStatus === 'success'">
+    <ul class="navigation__container navigation__container--left">
+      <li class="nav-item nav-item--logo">
+        <fa-icon [icon]="faTwitter" size="2x"></fa-icon>
+      </li>
+      <li class="nav-item nav-item--search">
+        <input
+          placeholder="Search twitter"
+          class="nav-item__search"
+          type="search"
+        />
+      </li>
+    </ul>
+    <ul class="navigation__container navigation__container--right">
+      <li class="nav-item">
+        <a class="link" routerLink="/home" routerLinkActive="active">
+          <fa-icon [icon]="faHome" size="lg"></fa-icon>
+          <span class="link__text">Home</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="link" routerLink="/explore" routerLinkActive="active">
+          <fa-icon [icon]="faExplore" size="lg"></fa-icon>
+          <span class="link__text">Explore</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="link" routerLink="/messages" routerLinkActive="active">
+          <fa-icon [icon]="faMessage" size="lg"></fa-icon>
+          <span class="link__text">Message</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="link" routerLink="/notification" routerLinkActive="active">
+          <fa-icon [icon]="faNotification" size="lg"></fa-icon>
+          <span class="link__text">Notifications</span>
+        </a>
+      </li>
+      <li class="nav-item nav-item--profile-mobile">
+        <a class="link" routerLink="/profile" routerLinkActive="active">
+          <fa-icon [icon]="faAccount" size="lg"></fa-icon>
+        </a>
+      </li>
+      <li class="nav-item nav-item--profile">
+        <div class="profile">
+          <img class="profile__image" [src]="User.photoUrl" />
+          <span class="profile__name">{{ User.displayName }}</span>
+          <span class="profile__icon">
+            <fa-icon [icon]="faDropdown" size="sm"></fa-icon>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </nav>
 
-<div class="top-nav">
-  <div class="top-nav__profile" (click)="logoutUser()">
-    <img class="image" src="https://i.pravatar.cc/150?img=56" />
+  <div class="top-nav">
+    <div class="top-nav__profile" (click)="logoutUser()">
+      <img class="image" src="https://i.pravatar.cc/150?img=56" />
+    </div>
   </div>
-</div>
+</ng-container>

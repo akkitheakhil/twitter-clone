@@ -11,4 +11,12 @@ export class FeatureFacadeService {
   logoutUser() {
     this.coreFacade.logoutUser();
   }
+
+  getFirebaseUserInfo() {
+    return this.coreFacade.getCurrentUserInfo();
+  }
+
+  getUserProfile() {
+    return this.coreFacade.getUserProfile();
+  }
 }

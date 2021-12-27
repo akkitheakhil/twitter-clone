@@ -1,3 +1,4 @@
+import { FeatureFacadeService } from '../../services/feature-facade.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  userInfo$ = this.featureFacade.getFirebaseUserInfo();
+  userProfile$ = this.featureFacade.getUserProfile();
+  constructor(private featureFacade: FeatureFacadeService) { }
 
   ngOnInit(): void {
   }

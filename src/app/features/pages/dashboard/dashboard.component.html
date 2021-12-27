@@ -1,17 +1,19 @@
-<article class="dashboard">
-  <section class="dashboard__section left">
-    <div class="section-items">
-      <twitter-profile-card></twitter-profile-card>
-      <twitter-follow-suggestion></twitter-follow-suggestion>
-    </div>
-  </section>
-  <section class="dashboard__section center">
-    <twitter-feed-post-card></twitter-feed-post-card>
-    <twitter-feed></twitter-feed>
-  </section>
-  <section class="dashboard__section right">
-    <div>
-      <twitter-trending-card></twitter-trending-card>
-    </div>
-  </section>
-</article>
+<ng-container *ngIf="userProfile$ | async as User">
+  <article class="dashboard" *ngIf="User.dataStatus === 'success'">
+    <section class="dashboard__section left">
+      <div class="section-items">
+        <twitter-profile-card [userProfile]="User"></twitter-profile-card>
+        <twitter-follow-suggestion></twitter-follow-suggestion>
+      </div>
+    </section>
+    <section class="dashboard__section center">
+      <twitter-feed-post-card [profile]="User"></twitter-feed-post-card>
+      <twitter-feed></twitter-feed>
+    </section>
+    <section class="dashboard__section right">
+      <div>
+        <twitter-trending-card></twitter-trending-card>
+      </div>
+    </section>
+  </article>
+</ng-container>

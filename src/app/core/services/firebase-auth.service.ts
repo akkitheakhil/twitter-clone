@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
 import { isEmptyData } from '../../shared/utils/common.utils';
+import { map } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })

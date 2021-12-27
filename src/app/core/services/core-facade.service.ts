@@ -3,7 +3,10 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as CoreActions from '../store/auth/auth-store.actions';
 import * as CoreSelectors from '../store/auth/auth-store.selectors';
+import * as ProfileActions from '../store/profile/profile-store.actions';
+import * as ProfileSelectors from '../store/profile/profile-store.selectors';
 import { IAuth } from '../models/auth.model';
+import { UserProfile } from '../models/user-profile.model';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +33,14 @@ export class CoreFacadeService {
 
   logoutUser() {
     this.store.dispatch(CoreActions.logoutUser());
+  }
+
+  createProfile(profile: UserProfile) {
+    this.store.dispatch(ProfileActions.createProfile({ data: profile }));
+  }
+
+  getUserProfile() {
+    return this.store.select(ProfileSelectors.selectUserInfo);
   }
 
 }

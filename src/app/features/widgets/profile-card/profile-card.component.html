@@ -1,20 +1,26 @@
 <article class="profile">
   <div class="profile__container">
     <div class="avatar">
-      <img src="https://i.pravatar.cc/150?img=56" alt="avatar" />
+      <img
+        [src]="userProfile?.photoUrl"
+        alt="avatar"
+        *ngIf="userProfile?.photoUrl"
+      />
     </div>
     <div class="user-info">
-      <h6 class="user-info__name">Akhil Padmanabhan</h6>
-      <p class="user-info__username">@akkitheakhil</p>
-      <div class="user-info__about">hello hope you doing good</div>
+      <h6 class="user-info__name">
+        {{ userProfile?.displayName || userProfile?.email }}
+      </h6>
+      <p class="user-info__username">@{{ userProfile?.userId }}</p>
+      <div class="user-info__about">{{ userProfile?.bio }}</div>
     </div>
     <div class="social-info">
       <div class="social-info__block">
-        <span class="count">800</span>
+        <span class="count">{{ userProfile?.followers }}</span>
         <span class="label">Followers</span>
       </div>
       <div class="social-info__block">
-        <span class="count">500</span>
+        <span class="count">{{ userProfile?.following }}</span>
         <span class="label">Following</span>
       </div>
     </div>

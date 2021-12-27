@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { UserProfile } from '../../../core/models/user-profile.model';
+import { Component, Input, OnInit } from '@angular/core';
 import { IconDefinition, faImages, faLaughSquint, faPhotoVideo, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -7,6 +8,8 @@ import { IconDefinition, faImages, faLaughSquint, faPhotoVideo, faCalendarAlt } 
   styleUrls: ['./feed-post-card.component.scss']
 })
 export class FeedPostCardComponent implements OnInit {
+
+  @Input() profile!: Partial<UserProfile>;
 
   textArea: string = "";
 

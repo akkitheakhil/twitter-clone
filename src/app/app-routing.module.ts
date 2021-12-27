@@ -1,3 +1,4 @@
+import { map } from 'rxjs';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AngularFireAuthGuard, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/compat/auth-guard';
@@ -24,6 +25,10 @@ const routes: Routes = [
   },
   {
     path: '', redirectTo: '', pathMatch: 'full'
+  },
+  {
+    path: 'create-profile', loadChildren: () => import('./core/create-profile/create-profile.module').then(m => m.CreateProfileModule),
+    canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }
   },
 ];
 

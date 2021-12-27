@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { UserProfile } from '../../../core/models/user-profile.model';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'twitter-profile-card',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileCardComponent implements OnInit {
 
+  @Input() userProfile!: Partial<UserProfile>;
   constructor() { }
 
   ngOnInit(): void {

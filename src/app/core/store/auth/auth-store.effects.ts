@@ -4,12 +4,13 @@ import * as CoreActions from './auth-store.actions';
 import { map, catchError, switchMap, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { FirebaseAuthService } from '../../services/firebase-auth.service';
+import * as ProfileActions from '../profile/profile-store.actions';
 
 import { Router } from '@angular/router';
 
 
 @Injectable()
-export class CoreStoreEffect {
+export class AuthStoreEffect {
 
   loadAuthUser$ = createEffect((): any => this.actions$.pipe(
     ofType(CoreActions.fetchAuthInfo),
@@ -38,7 +39,6 @@ export class CoreStoreEffect {
     map((firebaseUser) => {
       const user = firebaseUser?.user;
       if (user) {
-        this.router.navigate(['/home']);
         return CoreActions.loginUserWithGoogleSuccess({
           data: this.firebaseService.extractFireBaseUserInfo(user)
         })
@@ -51,6 +51,14 @@ export class CoreStoreEffect {
     catchError(error => of(CoreActions.loginUserWithGoogleError({ error })))
   ));
 
+  checkUSerHasProfile$ = createEffect((): any => this.actions$.pipe(
+    ofType(CoreActions.setAuthInfoSuccess),
+    switchMap((data) => { return of(data) }),
+    map(() => {
+      return ProfileActions.fetchUserProfile();
+    })
+  ));
+
   logoutUser$ = createEffect((): any => this.actions$.pipe(
     ofType(CoreActions.logoutUser),
     switchMap(() => { return this.firebaseService.logoutUser() }),
@@ -61,12 +69,13 @@ export class CoreStoreEffect {
       setTimeout(() => {
         this.router.navigate(['/login']);
       }, 400);
-
     }),
     catchError(error => of(CoreActions.logoutUserError({ error })))
   ), { dispatch: false });
 
 
-  constructor(private actions$: Actions, private firebaseService: FirebaseAuthService, private router: Router) { }
+  constructor(private actions$: Actions,
+    private firebaseService: FirebaseAuthService,
+    private router: Router) { }
 
 }

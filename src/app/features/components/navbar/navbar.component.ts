@@ -18,6 +18,8 @@ export class NavbarComponent implements OnInit {
   faDropdown: IconDefinition = faCaretDown;
   faAccount: IconDefinition = faUser;
 
+  userProfile$ = this.featureFacade.getUserProfile();
+
   constructor(private featureFacade: FeatureFacadeService) { }
 
   ngOnInit(): void {

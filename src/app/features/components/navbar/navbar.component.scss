@@ -166,7 +166,10 @@
     bottom: 0;
     left: 0;
     right: 0;
+    top: unset;
     height: 60px;
+    background: rgb(6, 20, 29, 1);
+    backdrop-filter: none;
     &__container {
       padding: 0 var(--spacing-base) !important;
       &--left {
