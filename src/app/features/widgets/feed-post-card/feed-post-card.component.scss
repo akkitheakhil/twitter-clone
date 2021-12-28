@@ -1,5 +1,6 @@
 .feedpost {
   width: 100%;
+
   display: flex;
   gap: var(--spacing-tiny);
   padding: var(--spacing-base);
@@ -36,12 +37,20 @@
         outline: none;
       }
 
-      &:not(.active)::after {
-        content: "What's happening?";
-        position: absolute;
-        left: var(--spacing-base);
-        top: var(--spacing-base);
-        color: var(--color-text-secondary);
+      &-textarea {
+        &:focus {
+          outline: none;
+        }
+
+        background: var(--color-background-accent-secondary);
+
+        &:not(.active)::after {
+          content: "What's happening?";
+          position: absolute;
+          left: var(--spacing-base);
+          top: var(--spacing-base);
+          color: var(--color-text-secondary);
+        }
       }
     }
 
@@ -51,6 +60,8 @@
       justify-content: space-between;
       align-items: center;
       gap: var(--spacing-base);
+      flex-wrap: wrap;
+      flex-direction: row;
       .btn {
         padding: var(--spacing-base) var(--spacing-large);
         background: var(--color-background-secondary);
@@ -61,7 +72,7 @@
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-        width: 100%;
+        flex: 1;
         cursor: pointer;
         transition: all 0.2s ease-in-out;
         &:hover {
@@ -86,9 +97,10 @@
             color: var(--color-yellow) !important;
           }
         }
-        &--schedule {
-          .ng-fa-icon {
-            color: var(--color-red) !important;
+        &--tweet {
+          background-color: var(--feature-color);
+          &:hover {
+            background-color: var(--feature-color-accent);
           }
         }
       }
@@ -96,9 +108,47 @@
   }
 }
 
+.image-upload {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+::ng-deep {
+  .link-embedded {
+    position: relative;
+    cursor: pointer;
+    .ng-fa-icon {
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      color: var(--color-background);
+    }
+  }
+
+  .link-preview {
+    z-index: 9;
+    text-decoration: none;
+    color: var(--feature-color);
+  }
+  .tweet-image-container {
+    img {
+      margin-left: auto;
+      background: var(--color-background) !important;
+    }
+  }
+}
+
 @media only screen and (max-width: 1200px) {
   .btn__text {
     display: none !important;
+  }
+
+  .btn--tweet {
+    .btn__text {
+      display: block !important;
+    }
   }
 }
 

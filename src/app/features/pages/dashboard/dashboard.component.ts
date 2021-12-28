@@ -10,7 +10,10 @@ export class DashboardComponent implements OnInit {
 
   userInfo$ = this.featureFacade.getFirebaseUserInfo();
   userProfile$ = this.featureFacade.getUserProfile();
-  constructor(private featureFacade: FeatureFacadeService) { }
+  tweetPost$ = this.featureFacade.getAllTweets();
+  constructor(private featureFacade: FeatureFacadeService) {
+    featureFacade.fetchAllTweets();
+  }
 
   ngOnInit(): void {
   }

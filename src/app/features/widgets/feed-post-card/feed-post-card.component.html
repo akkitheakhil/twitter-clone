@@ -3,14 +3,29 @@
     <img [src]="profile.photoUrl" alt="" />
   </div>
   <div class="feedpost__post-form">
-    <div
-      class="custom-input"
-      contenteditable="true"
-      [ngClass]="{ active: textArea.length }"
-      (input)="textInputHandler($event)"
-    ></div>
+    <div class="custom-input" #textContainer>
+      <div
+        class="custom-input-textarea"
+        contenteditable="true"
+        [ngClass]="{ active: textArea.length }"
+        (input)="textInputHandler($event)"
+        #textInput
+      ></div>
+      <div
+        *ngFor="let link of url_matches; let ind = index"
+        class="link-embedded"
+      >
+        <fa-icon
+          [icon]="faClose"
+          size="lg"
+          (click)="removeAddedLink(ind)"
+        ></fa-icon>
+        <a href="{{ link }}" target="_blank" class="link-preview">{{ link }}</a>
+      </div>
+    </div>
+
     <div class="feedpost__post-form-buttons">
-      <button class="btn btn--picture">
+      <button class="btn btn--picture" (click)="imageInput.click()">
         <fa-icon [icon]="faPicture" size="lg"></fa-icon>
         <span class="btn__text"> Picture </span>
       </button>
@@ -18,14 +33,27 @@
         <fa-icon [icon]="faGif" size="lg"></fa-icon>
         <span class="btn__text">Gif</span>
       </button>
-      <button class="btn btn--emoji">
+      <button
+        class="btn btn--emoji"
+        (click)="emojiToggle = !emojiToggle"
+        [(emojiPickerIf)]="emojiToggle"
+        [emojiPickerDirection]="'bottom'"
+        (emojiPickerSelect)="handleEmojiSelection($event)"
+      >
         <fa-icon [icon]="faEmoji" size="lg"></fa-icon>
         <span class="btn__text">Emoji</span>
       </button>
-      <button class="btn btn--schedule">
-        <fa-icon [icon]="faSchedule" size="lg"></fa-icon>
-        <span class="btn__text">Schedule</span>
+      <button class="btn btn--tweet" (click)="handleTweet()">
+        <span class="btn__text">Tweet</span>
       </button>
     </div>
   </div>
 </article>
+
+<input
+  #imageInput
+  class="image-upload"
+  type="file"
+  accept="image/*"
+  (change)="handleImageUpload(imageInput)"
+/>

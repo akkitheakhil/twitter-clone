@@ -34,9 +34,12 @@
     "colors": "^1.4.0",
     "dotenv": "^10.0.0",
     "firebase": "^9.4.0",
+    "moment": "^2.29.1",
+    "ngx-emoji-picker": "^0.1.6",
     "rxfire": "^6.0.0",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
+    "twemoji": "^13.1.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

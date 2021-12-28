@@ -23,7 +23,7 @@ export class FirebaseProfileService {
         this.userDocs = this.afs.doc<UserProfile>(`profile/${user.uid}`);
         this.userProfile = this.userDocs.valueChanges().pipe(shareReplay(1),);
       }
-    }), take(1)).subscribe();
+    })).pipe(take(1)).subscribe();
   }
 
   getProfile() {

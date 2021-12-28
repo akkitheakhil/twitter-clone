@@ -12,6 +12,7 @@
     <div class="form-group">
       <label class="form-group__label" for="name">Display Name</label>
       <input
+        autocomplete="off"
         [(ngModel)]="displayName"
         class="form-group__input"
         type="text"
@@ -24,6 +25,7 @@
     <div class="form-group">
       <label class="form-group__label" for="username">User id</label>
       <input
+        autocomplete="off"
         [(ngModel)]="userId"
         class="form-group__input"
         type="text"
@@ -35,6 +37,7 @@
     <div class="form-group">
       <label class="form-group__label" for="bio">Bio</label>
       <textarea
+        autocomplete="off"
         [(ngModel)]="bio"
         class="form-group__input form-group__input--textarea"
         id="bio"

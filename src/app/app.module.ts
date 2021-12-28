@@ -13,6 +13,8 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
+import { NgxEmojiPickerModule } from 'ngx-emoji-picker';
+import { FeatureStoreModule } from './features/store/feature-store.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { EffectsModule } from '@ngrx/effects';
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([]),
-    CoreStoreModule
+    CoreStoreModule,
+    FeatureStoreModule,
+    NgxEmojiPickerModule.forRoot()
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

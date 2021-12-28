@@ -8,6 +8,7 @@ import { FeedPostCardComponent } from './feed-post-card/feed-post-card.component
 import { FormsModule } from '@angular/forms';
 import { FeedComponent } from './feed/feed.component';
 import { SharedModule } from '../../shared/shared.module';
+import { NgxEmojiPickerModule } from 'ngx-emoji-picker';
 
 
 const widgetComponents = [
@@ -24,7 +25,8 @@ const widgetComponents = [
     CommonModule,
     FontAwesomeModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    NgxEmojiPickerModule
   ],
   exports: [...widgetComponents]
 })

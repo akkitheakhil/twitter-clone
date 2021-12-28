@@ -1,5 +1,4 @@
 .feed {
-  width: 100%;
   display: flex;
 
   &__container {
@@ -10,7 +9,6 @@
     width: 100%;
     .post {
       display: flex;
-      justify-content: space-between;
       gap: var(--spacing-base);
       background: var(--color-background-secondary);
       border-radius: var(--border-radius-xl);
@@ -55,6 +53,10 @@
         }
 
         .post {
+          display: flex;
+          flex-direction: column;
+          margin-top: var(--spacing-xl);
+          gap: var(--spacing-base);
           font-size: var(--font-size-span);
           color: var(--color-text);
         }
@@ -69,6 +71,8 @@
             align-items: center;
             gap: var(--spacing-base);
             margin: var(--spacing-base) 0;
+            flex-direction: row;
+            flex-wrap: wrap;
             .btn {
               color: var(--color-text);
               display: flex;
@@ -106,8 +110,10 @@
         .actions {
           display: flex;
           gap: var(--spacing-base);
+          flex-wrap: wrap;
+          flex-direction: row;
           &__btn {
-            width: 100%;
+            flex: 1;
             background-color: var(--color-background-accent-secondary);
             display: flex;
             align-items: center;
@@ -129,10 +135,11 @@
             }
 
             &--share {
+              flex: unset;
               background-color: var(--color-background-secondary);
               border: var(--border-width) solid
                 var(--color-background-accent-secondary);
-              width: 100px;
+              width: 100px !important;
             }
           }
         }
@@ -149,6 +156,7 @@
     gap: var(--spacing-small);
   }
   .post__container {
+    width: calc(100vw - 100px);
     padding: var(--spacing-base) var(--spacing-small) !important;
   }
   .btn__text {
