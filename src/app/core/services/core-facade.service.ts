@@ -43,4 +43,12 @@ export class CoreFacadeService {
     return this.store.select(ProfileSelectors.selectUserInfo);
   }
 
+  registerWithEmailPassword(userInfo: { email: string, password: string }) {
+    this.store.dispatch(CoreActions.registerUserWithEmailPassword({ data: userInfo }));
+  }
+
+  loginWithEmailPassword(userInfo: { email: string, password: string }) {
+    this.store.dispatch(CoreActions.loginUserWithEmailPassword({ data: userInfo }));
+  }
+
 }

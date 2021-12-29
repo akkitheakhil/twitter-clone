@@ -38,4 +38,12 @@ export class FirebaseAuthService {
     return this.auth.signOut();
   }
 
+  registerWithEmailPassword(userInfo: { email: string, password: string }) {
+    return this.auth.createUserWithEmailAndPassword(userInfo.email, userInfo.password);
+  }
+
+  loginWithEmailPassword(userInfo: { email: string, password: string }) {
+    return this.auth.signInWithEmailAndPassword(userInfo.email, userInfo.password);
+  }
+
 }

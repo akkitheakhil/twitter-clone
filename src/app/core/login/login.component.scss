@@ -52,6 +52,20 @@
           outline: none;
           border-color: var(--color-background);
         }
+
+        &.ng-invalid:not(.ng-untouched):not(.ng-pristine) {
+          border: var(--border-width-lg) solid var(--color-red) !important;
+        }
+
+        &.ng-valid {
+          border: var(--border-width-lg) solid var(--color-green) !important;
+        }
+      }
+
+      &__submit-error {
+        color: var(--color-red);
+        font-size: var(--font-size-xl);
+        margin-top: var(--spacing-large);
       }
 
       &__button {

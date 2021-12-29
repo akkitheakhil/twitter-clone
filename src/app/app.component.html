@@ -1,1 +1,7 @@
 <router-outlet></router-outlet>
+
+<ng-container *ngIf="currentAuthInfo$ | async as currentAuthStatus">
+  <ng-container *ngIf="currentAuthStatus.dataStatus === 'loading'">
+    <twitter-loader-screen></twitter-loader-screen>
+  </ng-container>
+</ng-container>

@@ -43,8 +43,12 @@
         </a>
       </li>
       <li class="nav-item nav-item--profile">
-        <div class="profile">
-          <img class="profile__image" [src]="User.photoUrl" />
+        <div class="profile" (click)="logoutUser()">
+          <img
+            class="profile__image"
+            [src]="User.photoUrl"
+            (error)="onErrorImageUrl($event.target, User.displayName)"
+          />
           <span class="profile__name">{{ User.displayName }}</span>
           <span class="profile__icon">
             <fa-icon [icon]="faDropdown" size="sm"></fa-icon>

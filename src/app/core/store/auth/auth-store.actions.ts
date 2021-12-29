@@ -41,3 +41,35 @@ export const logoutUserError = createAction(
   '[CORE+AUTH] Logout User Error',
   props<{ error: any }>()
 );
+
+
+export const registerUserWithEmailPassword = createAction(
+  '[CORE+AUTH] Register User With Email Password',
+  props<{ data: any }>()
+)
+
+export const registerUserWithEmailPasswordSuccess = createAction(
+  '[CORE+AUTH] Register User With Email Password Success',
+  props<{ data: any }>()
+)
+
+export const registerUserWithEmailPasswordError = createAction(
+  '[CORE+AUTH] Register User With Email Password Error',
+  props<{ error: any }>()
+)
+
+
+export const loginUserWithEmailPassword = createAction(
+  '[CORE+AUTH] Login User With Email Password',
+  props<{ data: any }>()
+)
+
+export const loginUserWithEmailPasswordSuccess = createAction(
+  '[CORE+AUTH] Login User With Email Password Success',
+  props<{ data: any }>()
+)
+
+export const loginUserWithEmailPasswordError = createAction(
+  '[CORE+AUTH] Login User With Email Password Error',
+  props<{ error: any }>()
+)

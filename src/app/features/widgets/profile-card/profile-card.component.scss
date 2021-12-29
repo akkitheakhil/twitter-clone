@@ -29,6 +29,16 @@
         border-radius: 50%;
         height: 60px;
         width: 60px;
+
+        &::after {
+          z-index: 2;
+          content: "";
+          height: 60px;
+          width: 60px;
+          background-color: var(--color-background-secondary);
+          border-radius: 50%;
+          opacity: 0.5;
+        }
       }
     }
 

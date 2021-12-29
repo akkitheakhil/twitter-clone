@@ -11,16 +11,18 @@
       <h2 class="labels__sub">Login, tweet and retweet</h2>
     </div>
 
-    <form class="form">
+    <form class="form" [formGroup]="loginForm">
       <input
+        formControlName="email"
         autocomplete="off"
         class="form__input form__input--username"
-        type="text"
-        name="username"
-        placeholder="Username"
+        type="email"
+        name="email"
+        placeholder="Email"
         required
       />
       <input
+        formControlName="password"
         autocomplete="off"
         class="form__input form__input--password"
         type="password"
@@ -28,6 +30,13 @@
         placeholder="Password"
         required
       />
+
+      <ng-container *ngIf="authState$ | async as AuthState">
+        <h5 class="form__submit-error" *ngIf="AuthState.dataStatus === 'error'">
+          {{ AuthState.error?.code }}
+        </h5>
+      </ng-container>
+
       <button
         class="form__button"
         (click)="handleLoginForm(); $event.preventDefault()"

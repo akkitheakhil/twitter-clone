@@ -99,4 +99,9 @@ export class FeedPostCardComponent implements OnInit, AfterViewChecked {
   removeAddedLink(ind: number) {
     this.url_matches.splice(ind, 1);
   }
+
+  onErrorImageUrl(target: any, displayName: any) {
+    const api = `https://ui-avatars.com/api/?name=${displayName}&background=0D8ABC&color=fff&size=128&rounded=true&bold=true&font-size=0.5';`
+    target.src = api;
+  }
 }

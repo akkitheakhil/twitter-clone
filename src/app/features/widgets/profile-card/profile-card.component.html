@@ -4,7 +4,8 @@
       <img
         [src]="userProfile?.photoUrl"
         alt="avatar"
-        *ngIf="userProfile?.photoUrl"
+        (error)="onErrorImageUrl($event.target, userProfile.displayName)"
+      />
       />
     </div>
     <div class="user-info">

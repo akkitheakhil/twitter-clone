@@ -19,4 +19,7 @@
       </div>
     </section>
   </article>
+  <ng-container *ngIf="User.dataStatus === 'loading'">
+    <twitter-loader-screen></twitter-loader-screen>
+  </ng-container>
 </ng-container>

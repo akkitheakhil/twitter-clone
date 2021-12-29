@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Router } from '@angular/router';
 import * as ProfileActions from '../profile/profile-store.actions';
-import { switchMap, map, catchError, of } from 'rxjs';
+import { switchMap, map, catchError, of, repeat } from 'rxjs';
 import { UserProfile } from '../../models/user-profile.model';
 import { FirebaseProfileService } from '../../services/firebase-profile.service';
 
@@ -17,6 +17,7 @@ export class ProfileStoreEffect {
       return this.firebaseProfileService.getProfile()
     }),
     map((profile) => {
+      console.log('profile', profile);
       if (profile) {
         this.router.navigate(['/home']);
         return ProfileActions.setUserProfileSuccess({ data: profile })
@@ -25,7 +26,8 @@ export class ProfileStoreEffect {
         return ProfileActions.setUserProfileError({ error: null })
       }
     }),
-    catchError(error => of(ProfileActions.setUserProfileError({ error })))
+    catchError(error => of(ProfileActions.setUserProfileError({ error }))),
+    repeat(),
   ));
 
   createProfile$ = createEffect((): any => this.actions$.pipe(
@@ -36,7 +38,8 @@ export class ProfileStoreEffect {
     map(() => {
       return ProfileActions.fetchUserProfile();
     }),
-    catchError(error => of(ProfileActions.createProfileError({ error })))
+    catchError(error => of(ProfileActions.createProfileError({ error }))),
+    repeat(),
   ))
 
   constructor(private actions$: Actions,

@@ -4,6 +4,7 @@ import { createReducer } from '@ngrx/store';
 import * as CoreActions from './auth-store.actions';
 import { CommonConstants } from 'src/app/shared/constants/common-constants';
 import { IAuth } from '../../models/auth.model';
+import { isEmptyData } from 'src/app/shared/utils/common.utils';
 
 export const initialAuthState: Partial<IAuth> = {
   isAuthenticated: false,
@@ -36,7 +37,8 @@ export const reducer = createReducer(
 
   on(CoreActions.setAuthInfoError, (state, { error }) => ({
     ...initialAuthState,
-    dataStatus: httpDataStatus.ERROR, error
+    dataStatus: isEmptyData(error) ? httpDataStatus.NO_DATA : httpDataStatus.ERROR,
+    error
   })),
 
   on(CoreActions.loginUserWithGoogleSuccess, (state, { data }) => ({
@@ -59,10 +61,10 @@ export const reducer = createReducer(
 
   })),
 
-
   on(CoreActions.logoutUserSuccess, (state, { data }) => ({
     ...initialAuthState, dataStatus: httpDataStatus.SUCCESS,
-  }))
+  })),
+
 
 
 )

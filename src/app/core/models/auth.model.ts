@@ -6,4 +6,5 @@ export interface IAuth {
   isAuthenticated: boolean;
   dataStatus: string;
   userID: string;
+  error?: any;
 }

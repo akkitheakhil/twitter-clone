@@ -15,6 +15,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { NgxEmojiPickerModule } from 'ngx-emoji-picker';
 import { FeatureStoreModule } from './features/store/feature-store.module';
+import { SharedModule } from './shared/shared.module';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { FeatureStoreModule } from './features/store/feature-store.module';
     EffectsModule.forRoot([]),
     CoreStoreModule,
     FeatureStoreModule,
-    NgxEmojiPickerModule.forRoot()
+    NgxEmojiPickerModule.forRoot(),
+    SharedModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

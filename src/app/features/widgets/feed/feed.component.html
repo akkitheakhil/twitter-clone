@@ -3,7 +3,11 @@
     <ng-container *ngFor="let tweets of feedTweets">
       <li class="post">
         <div class="post__avatar">
-          <img [src]="tweets.createdByPhoto" alt="" />
+          <img
+            [src]="tweets.createdByPhoto"
+            alt=""
+            (error)="onErrorImageUrl($event.target, tweets.createdByName)"
+          />
         </div>
         <div class="post__container">
           <div class="info">

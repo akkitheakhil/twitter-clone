@@ -1,6 +1,10 @@
 <article class="feedpost">
   <div class="feedpost__avatar">
-    <img [src]="profile.photoUrl" alt="" />
+    <img
+      [src]="profile.photoUrl"
+      alt=""
+      (error)="onErrorImageUrl($event.target, profile.displayName)"
+    />
   </div>
   <div class="feedpost__post-form">
     <div class="custom-input" #textContainer>
